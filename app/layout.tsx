@@ -1,4 +1,5 @@
-
+import './styles/chatbot.css'
+import ChatbotProvider from './components/chatbot/ChatbotProvider'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import './styles/index.css'
@@ -12,11 +13,16 @@ const manrope = Manrope({ subsets: ['latin'], display: 'swap' })
 function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={manrope.className} suppressHydrationWarning>
-      <body className="tp-shell overflow-x-hidden antialiased" suppressHydrationWarning style={{ backgroundColor: 'var(--tp-bg)', color: 'var(--tp-ink)' }}>
+      <body
+        className="tp-shell overflow-x-hidden antialiased"
+        suppressHydrationWarning
+        style={{ backgroundColor: 'var(--tp-bg)', color: 'var(--tp-ink)' }}
+      >
         <UserProvider>
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ChatbotProvider />
         </UserProvider>
       </body>
     </html>
